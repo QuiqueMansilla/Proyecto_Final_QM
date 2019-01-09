@@ -45,13 +45,13 @@ void imprimeValor1(long int Nivel) {
 //Se define la funcion "encenderBomba"
 void encenderBomba(int BombaPin){
   digitalWrite(BombaPin, HIGH); // Enciende la bomba para que se llene la cisterna
-  Serial.println("Bomba Encendida");
+  Serial.println("Bomba Encendida ");
   }
   
 //Se define la funcion "apagarBomba"
 void apagarBomba(int BombaPin){
   digitalWrite(BombaPin, LOW); //Apaga la bomba
-  Serial.println("Bomba Apagada");
+  Serial.println(" Bomba Apagada  ");
   }  
 
   //Definicion de funcion "imprimeLCDValor" que muestra en LCD el valor del Nivel en %
