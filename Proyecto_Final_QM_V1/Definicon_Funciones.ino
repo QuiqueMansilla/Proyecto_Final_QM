@@ -59,5 +59,5 @@ void imprimeLCDValor(long int Nivel) {
   lcd.setCursor(0, 1); //Posiciona el cursor en (Columna, fila) inicio de la segunda fila del LCD
   lcd.print("Nivel: ");
   lcd.print(Nivel);
-  lcd.print(" %");
+  lcd.print("%");
     }

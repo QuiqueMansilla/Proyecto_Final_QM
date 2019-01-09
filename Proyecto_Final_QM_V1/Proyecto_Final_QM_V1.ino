@@ -23,15 +23,15 @@ void setup() {
   
   apagarBomba(BombaPin); //Apaga la Bomba cuando inicia
 
-  lcd.println("   Iniciando");
-  lcd.print(" Control Nivel");
+  lcd.println("   Iniciando    ");
+  lcd.print(" Control Nivel  ");
   delay(2000);
   lcd.clear();
   
   //Ejecuta la condicion inicial: El sistema, cuando inicia, mide el nivel y si este es menor que el Minimo establecido encenderá la bomba hasta llenar cisterna,
   //luego ingresa en modo trabajo normal, caso contrario asegura apagando la bomba y pasa directamente a modo de trabajo normal
       
-  lcd.println("  Nivel Inical");
+  lcd.println("  Nivel Inical  ");
   float Distancia = ping(TriggerPin, EchoPin); //Se llama a la funcion "ping" definida al final y guardo el valor que devuelve dicha funcion en variable Distancia
   long int Nivel = nivel(Distancia); //Se llama a la funcion "nivel" definida al final y guardo el valor que devuelva esta funcion en variable "Nivel"
   imprimeLCDValor(Nivel); //Muestra en display LCD el valor del Nivel en %
@@ -42,7 +42,7 @@ void setup() {
     while (Nivel < Maximo) {
       encenderBomba(BombaPin); //Enciende la bomba para llenar la cisterna
       lcd.clear();
-      lcd.println("Llenando Tanque");
+      lcd.println("Llenando Tanque ");
       Distancia = ping(TriggerPin, EchoPin); //Se llama a la funcion "ping" definida al final y guardo el valor que devuelve dicha funcion en variable Distancia
       Nivel = nivel(Distancia); //Se llama a la funcion "nivel" definida al final y guardo el valor que devuelva esta funcion en variable "Nivel"
       imprimeLCDValor(Nivel); //Muestro en display LCD el valor del nivel (%)
@@ -51,14 +51,14 @@ void setup() {
    
   apagarBomba(BombaPin);
   lcd.clear();
-  lcd.println(" Cisterna llena");
+  lcd.println(" Cisterna llena ");
   delay(1000);  
 }  
 
 //Inicial lazo infinito, secuencial ingresando en el modo normal de trabajo
 void loop() {
-  lcd.println("  Modo normal");
-  lcd.print("   de trabajo");
+  lcd.println("  Modo normal   ");
+  lcd.print("   de trabajo   ");
   delay(1000);
   float Distancia = ping(TriggerPin, EchoPin); //Se llama a la funcion "ping" definida al final y guardo el valor que devuelve dicha funcion en variable Distancia
   long int Nivel = nivel(Distancia); //Se llama a la funcion "nivel" definida al final y guardo el valor que devuelva esta funcion en variable "Nivel"
@@ -71,7 +71,7 @@ void loop() {
       Distancia = ping(TriggerPin, EchoPin); //Se llama a la funcion "ping" definida al final y guardo el valor que devuelve dicha funcion en variable Distancia
       Nivel = nivel(Distancia);  //Se llama a la funcion "nivel" definida al final y guardo el valor que devuelva esta funcion en variable "Nivel"
       apagarBomba(BombaPin);
-      lcd.println(" Bomba Apagada");
+      lcd.println(" Bomba Apagada  ");
       imprimeLCDValor(Nivel); //Muestro en display LCD el valor del nivel (%)
       delay(1000);
     } while (Nivel > Minimo);
@@ -84,12 +84,12 @@ void loop() {
    
   // Si el nivel esta por debajo del minimo establecido enciente la bomba hasta que alcamce el maximo (Tanque lleno)
   if (Nivel < Minimo) {
-    lcd.println(" Reponer Nivel ");
+    lcd.println(" Reponer Nivel  ");
     delay(1000);
     lcd.clear();
     do {
     encenderBomba(BombaPin);
-    lcd.println("Bomba Encendida");
+    lcd.println("Bomba Encendida ");
     Distancia = ping(TriggerPin, EchoPin); //Se llama a la funcion "ping" definida al final y guardo el valor que devuelve dicha funcion en variable Distancia
     Nivel = nivel(Distancia);  //Se llama a la funcion "nivel" definida al final y guardo el valor que devuelva esta funcion en variable "Nivel"
     imprimeLCDValor(Nivel); //Muestro en display LCD el valor del nivel (%)
